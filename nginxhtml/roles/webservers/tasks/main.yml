@@ -1,0 +1,12 @@
+---
+# This task installs and enables nginx on webservers
+- name: install the latest version of nginx
+  action: "{{ ansible_pkg_mgr }} name=nginx state=latest"
+#- name: ensure nginx is running
+#  service: name=nginx state=started enabled=yes
+- name: copy files to document root
+  copy: src=nginx-logo.png dest=/var/www/html/nginx-logo.png
+- name: copy application code to document root
+  template: src=index.html.j2 dest=/var/www/html/index.html
+#  notify: restart nginx
+

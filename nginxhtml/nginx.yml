@@ -1,0 +1,9 @@
+---
+- name: install and configure webservers
+  hosts: server
+  remote_user: root
+  sudo: yes
+  roles:
+   - webservers
+
+
